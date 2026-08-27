@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const THEME_STORAGE_KEY = "theme";
 const THEME_CHANGE_EVENT = "themechange";
+const SHORTCUT_TIMEOUT_MS = 400;
 
 type Theme = "light" | "dark";
 
@@ -84,6 +85,9 @@ export function ThemeToggle({
 		() => "light",
 	);
 	const isDark = theme === "dark";
+	const shortcutTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+		null,
+	);
 
 	React.useEffect(() => {
 		function handleKeyDown(event: KeyboardEvent) {
@@ -91,16 +95,27 @@ export function ThemeToggle({
 				(event.ctrlKey || event.metaKey) &&
 				event.shiftKey &&
 				event.key.toLowerCase() === "l" &&
+				!event.repeat &&
+				!shortcutTimeoutRef.current &&
 				!isEditableTarget(event.target)
 			) {
 				event.preventDefault();
 				toggleTheme();
+				shortcutTimeoutRef.current = setTimeout(() => {
+					shortcutTimeoutRef.current = null;
+				}, SHORTCUT_TIMEOUT_MS);
 			}
 		}
 
 		window.addEventListener("keydown", handleKeyDown);
 
-		return () => window.removeEventListener("keydown", handleKeyDown);
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+
+			if (shortcutTimeoutRef.current) {
+				clearTimeout(shortcutTimeoutRef.current);
+			}
+		};
 	}, []);
 
 	return (
