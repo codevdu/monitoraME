@@ -16,9 +16,9 @@ import {
 import { UserIcon, SettingsIcon, LogOutIcon } from "lucide-react";
 
 const user = {
-	name: "Shaban Haider",
-	email: "shaban@efferd.com",
-	avatar: "https://github.com/shabanhr.png",
+	name: "Rodrigo",
+	email: "rodrigo@gmail.com",
+	avatar: "https://avatars.githubusercontent.com/u/159199457?v=4",
 };
 
 export function NavUser() {
