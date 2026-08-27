@@ -1,16 +1,16 @@
 import type { ComponentProps, ReactNode } from "react";
-import { AdminAppShell } from "@/components/admin/sidebar/app-shell";
+import { MonitorAppShell } from "@/components/monitor/sidebar/app-shell";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const sidebarProps = {
 	collapsible: "icon",
 	variant: "sidebar",
-} satisfies NonNullable<ComponentProps<typeof AdminAppShell>["sidebarProps"]>;
+} satisfies NonNullable<ComponentProps<typeof MonitorAppShell>["sidebarProps"]>;
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
 	return (
 		<TooltipProvider>
-			<AdminAppShell sidebarProps={sidebarProps}>{children}</AdminAppShell>
+			<MonitorAppShell sidebarProps={sidebarProps}>{children}</MonitorAppShell>
 		</TooltipProvider>
 	);
 }
