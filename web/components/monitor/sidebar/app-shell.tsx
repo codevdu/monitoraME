@@ -1,15 +1,15 @@
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { AppHeader } from "@/components/admin/sidebar/app-header";
-import { AppSidebar } from "@/components/admin/sidebar/app-sidebar";
+import { AppHeader } from "@/components/monitor/sidebar/app-header";
+import { AppSidebar } from "@/components/monitor/sidebar/app-sidebar";
 
 type AppShellProps = {
 	children: ReactNode;
 	sidebarProps?: ComponentProps<typeof AppSidebar>;
 };
 
-export function AdminAppShell({ children, sidebarProps }: AppShellProps) {
+export function MonitorAppShell({ children, sidebarProps }: AppShellProps) {
 	return (
 		<SidebarProvider className={cn("[--app-wrapper-max-width:80rem]")}>
 			<AppSidebar {...sidebarProps} />
