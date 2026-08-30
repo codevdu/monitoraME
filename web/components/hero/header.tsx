@@ -6,6 +6,8 @@ import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { DesktopNav } from "@/components/hero/desktop-nav";
 import { MobileNav } from "@/components/hero/mobile-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
+import Link from "next/link";
 
 export function Header() {
 	const scrolled = useScroll(10);
@@ -27,11 +29,18 @@ export function Header() {
 					</a>
 					<DesktopNav />
 				</div>
-				<div className="hidden items-center gap-2 md:flex">
-					<Button variant="outline">Sign In</Button>
-					<Button>Get Started</Button>
+				<div className="flex items-center gap-2">
+					<ThemeToggle />
+					<div className="hidden items-center gap-2 md:flex">
+						<Link href={"/login"}>
+							<Button variant="outline">Entrar</Button>
+						</Link>
+						<Link href={"/request-account"}>
+							<Button>Solicitar Conta</Button>
+						</Link>
+					</div>
+					<MobileNav />
 				</div>
-				<MobileNav />
 			</nav>
 		</header>
 	);

@@ -14,7 +14,7 @@ export function MobileNav() {
 			<Button
 				aria-controls="mobile-menu"
 				aria-expanded={open}
-				aria-label="Toggle menu"
+				aria-label="Alternar menu"
 				className="md:hidden"
 				onClick={() => setOpen(!open)}
 				size="icon"
@@ -50,7 +50,7 @@ export function MobileNav() {
 						data-slot={open ? "open" : "closed"}
 					>
 						<div className="flex w-full flex-col gap-y-2">
-							<span className="text-sm">Product</span>
+							<span className="text-sm">Plataforma</span>
 							{productLinks.map((link) => (
 								<LinkItem
 									className="rounded-lg p-2 active:bg-muted dark:active:bg-muted/50"
@@ -58,7 +58,7 @@ export function MobileNav() {
 									{...link}
 								/>
 							))}
-							<span className="text-sm">Company</span>
+							<span className="text-sm">Institucional</span>
 							{companyLinks.map((link) => (
 								<LinkItem
 									className="rounded-lg p-2 active:bg-muted dark:active:bg-muted/50"
@@ -76,9 +76,9 @@ export function MobileNav() {
 						</div>
 						<div className="mt-5 flex flex-col gap-2">
 							<Button className="w-full" variant="outline">
-								Sign In
+								Entrar
 							</Button>
-							<Button className="w-full">Get Started</Button>
+							<Button className="w-full">Acessar painel</Button>
 						</div>
 					</div>
 				</Portal>

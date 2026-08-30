@@ -51,7 +51,7 @@ export function HeroSection() {
 
 				<div className="fade-in slide-in-from-bottom-10 flex w-fit animate-in items-center justify-center gap-3 fill-mode-backwards pt-2 delay-500 duration-500 ease-out">
 					<Button>
-						Acessar painel{" "}
+						Acessar demonstração{" "}
 						<ArrowRightIcon data-icon="inline-end" />
 					</Button>
 				</div>

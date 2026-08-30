@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { companyLinks, companyLinks2, productLinks } from "@/components/hero/nav-links";
 import { LinkItem } from "@/components/hero/sheard";
+import Link from "next/link";
 
 export function DesktopNav() {
 	return (
@@ -15,7 +16,7 @@ export function DesktopNav() {
 			<NavigationMenuList>
 				<NavigationMenuItem className="bg-transparent">
 					<NavigationMenuTrigger className="bg-transparent">
-						Product
+						Plataforma
 					</NavigationMenuTrigger>
 					<NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 dark:bg-background">
 						<div className="rounded-lg grid w-lg grid-cols-2 gap-2 border bg-popover p-2 shadow">
@@ -27,20 +28,20 @@ export function DesktopNav() {
 						</div>
 						<div className="p-2">
 							<p className="text-muted-foreground text-sm">
-								Interested?{" "}
-								<a
+								Quer conhecer melhor?{" "}
+								<Link
 									className="font-medium text-foreground hover:underline"
 									href="#"
 								>
-									Schedule a demo
-								</a>
+									Acesse a demonstração
+								</Link>
 							</p>
 						</div>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
 					<NavigationMenuTrigger className="bg-transparent">
-						Company
+						Institucional
 					</NavigationMenuTrigger>
 					<NavigationMenuContent className="bg-muted/50 p-1 pr-1.5 pb-1.5 dark:bg-background">
 						<div className="grid w-lg grid-cols-2 gap-2">
@@ -66,9 +67,9 @@ export function DesktopNav() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuLink asChild className="px-4">
-					<a className="rounded-md p-2 hover:bg-accent" href="#">
-						Pricing
-					</a>
+					<Link className="rounded-md p-2 hover:bg-accent" href="#">
+						Planos
+					</Link>
 				</NavigationMenuLink>
 			</NavigationMenuList>
 		</NavigationMenu>

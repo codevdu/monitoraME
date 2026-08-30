@@ -3,45 +3,45 @@ import { GlobeIcon, LayersIcon, UserPlusIcon, BarChart3Icon, PlugIcon, CodeIcon,
 
 export const productLinks: LinkItemType[] = [
 	{
-		label: "Website Builder",
+		label: "Gestão de informações",
 		href: "#",
-		description: "Create responsive websites with ease",
+		description: "Organize dados, registros e comunicações em um só lugar",
 		icon: (
 			<GlobeIcon
 			/>
 		),
 	},
 	{
-		label: "Cloud Platform",
+		label: "Divulgação pública",
 		href: "#",
-		description: "Deploy and scale apps in the cloud",
+		description: "Apoie a publicação e o acompanhamento de informações",
 		icon: (
 			<LayersIcon
 			/>
 		),
 	},
 	{
-		label: "Team Collaboration",
+		label: "Colaboração",
 		href: "#",
-		description: "Tools to help your teams work better together",
+		description: "Coordene equipes, responsáveis e fluxos internos",
 		icon: (
 			<UserPlusIcon
 			/>
 		),
 	},
 	{
-		label: "Analytics",
+		label: "Análises",
 		href: "#",
-		description: "Track and analyze your website traffic",
+		description: "Acompanhe indicadores e histórico de movimentações",
 		icon: (
 			<BarChart3Icon
 			/>
 		),
 	},
 	{
-		label: "Integrations",
+		label: "Integrações",
 		href: "#",
-		description: "Connect your apps and services",
+		description: "Conecte sistemas e fontes de dados relevantes",
 		icon: (
 			<PlugIcon
 			/>
@@ -50,7 +50,7 @@ export const productLinks: LinkItemType[] = [
 	{
 		label: "API",
 		href: "#",
-		description: "Build custom integrations with our API",
+		description: "Crie integrações sob medida para sua operação",
 		icon: (
 			<CodeIcon
 			/>
@@ -60,37 +60,37 @@ export const productLinks: LinkItemType[] = [
 
 export const companyLinks: LinkItemType[] = [
 	{
-		label: "About Us",
+		label: "Sobre a plataforma",
 		href: "#",
-		description: "Learn more about our story and team",
+		description: "Conheça a proposta e os limites de uso do MonitoraME",
 		icon: (
 			<UsersIcon
 			/>
 		),
 	},
 	{
-		label: "Customer Stories",
+		label: "Casos de uso",
 		href: "#",
-		description: "See how we've helped our clients succeed",
+		description: "Veja como equipes podem estruturar rotinas de acompanhamento",
 		icon: (
 			<StarIcon
 			/>
 		),
 	},
 	{
-		label: "Partnerships",
+		label: "Parcerias",
 		href: "#",
 		icon: (
 			<HandshakeIcon
 			/>
 		),
-		description: "Collaborate with us for mutual growth",
+		description: "Converse sobre cooperação técnica e institucional",
 	},
 ];
 
 export const companyLinks2: LinkItemType[] = [
 	{
-		label: "Terms of Service",
+		label: "Termos de uso",
 		href: "#",
 		icon: (
 			<FileTextIcon
@@ -98,7 +98,7 @@ export const companyLinks2: LinkItemType[] = [
 		),
 	},
 	{
-		label: "Privacy Policy",
+		label: "Política de privacidade",
 		href: "#",
 		icon: (
 			<ShieldIcon
@@ -106,7 +106,7 @@ export const companyLinks2: LinkItemType[] = [
 		),
 	},
 	{
-		label: "Refund Policy",
+		label: "Política comercial",
 		href: "#",
 		icon: (
 			<RotateCcwIcon
@@ -122,7 +122,7 @@ export const companyLinks2: LinkItemType[] = [
 		),
 	},
 	{
-		label: "Help Center",
+		label: "Central de ajuda",
 		href: "#",
 		icon: (
 			<HelpCircleIcon
