@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { ThemeProvider } from "@/components/theme-toggle";
 import { Geist, Geist_Mono, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -27,34 +29,22 @@ export const metadata: Metadata = {
   description: "Plataforma de monitoramento e auxílio de licitações",
 };
 
-const themeInitializer = `
-(() => {
-  try {
-    const storedTheme = localStorage.getItem("theme");
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    const theme = storedTheme || systemTheme;
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    document.documentElement.style.colorScheme = theme;
-  } catch {
-    document.documentElement.classList.remove("dark");
-    document.documentElement.style.colorScheme = "light";
-  }
-})();
-`;
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const theme = (await cookies()).get("theme")?.value;
+  const isDark = theme === "dark";
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={`
+        ${isDark ? "dark" : ""}
         ${geistSans.variable} ${geistMono.variable} 
         ${plusJakartaSans.variable} ${jetBrainsMono.variable}
-        h-full antialiased`}
+      h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 const THEME_STORAGE_KEY = "theme";
 const THEME_CHANGE_EVENT = "themechange";
 const SHORTCUT_TIMEOUT_MS = 400;
+const THEME_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 type Theme = "light" | "dark";
 
@@ -27,8 +28,13 @@ function applyTheme(theme: Theme) {
 	document.documentElement.style.colorScheme = theme;
 }
 
+function applyPreferredTheme() {
+	applyTheme(getStoredTheme() ?? getSystemTheme());
+}
+
 function setTheme(theme: Theme) {
 	window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+	document.cookie = `${THEME_STORAGE_KEY}=${theme}; path=/; max-age=${THEME_COOKIE_MAX_AGE}; SameSite=Lax`;
 	applyTheme(theme);
 	window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
 }
@@ -48,7 +54,7 @@ function getThemeSnapshot(): Theme {
 function subscribeToTheme(onStoreChange: () => void) {
 	const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 	const syncTheme = () => {
-		applyTheme(getStoredTheme() ?? getSystemTheme());
+		applyPreferredTheme();
 		onStoreChange();
 	};
 
@@ -61,6 +67,14 @@ function subscribeToTheme(onStoreChange: () => void) {
 		window.removeEventListener("storage", syncTheme);
 		mediaQuery.removeEventListener("change", syncTheme);
 	};
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+	React.useLayoutEffect(() => {
+		applyPreferredTheme();
+	}, []);
+
+	return children;
 }
 
 function isEditableTarget(target: EventTarget | null) {
