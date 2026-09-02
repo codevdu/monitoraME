@@ -2,7 +2,7 @@
 
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
-import { LogoIcon } from "@/components/monitor/sidebar/logo";
+import { LogoContent, LogoIcon } from "@/components/logo";
 import {
 	Sidebar,
 	SidebarContent,
@@ -41,7 +41,18 @@ export function AppSidebar({
 			{...props}
 		>
 			<SidebarHeader className="h-14 justify-center border-b px-2">
-				<SidebarMenuButton render={<Link href="/admin" />}><LogoIcon /><span className="font-medium text-foreground!">MonitoraME</span></SidebarMenuButton>
+				<SidebarMenuButton
+					aria-label="MonitoraME"
+					className="h-10 gap-2 text-foreground group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0! [&>[data-logo-content]]:h-4 [&>[data-logo-content]]:w-auto [&>[data-logo-icon]]:h-4 [&>[data-logo-icon]]:w-auto"
+					render={<Link href="/monitor" />}
+				>
+					<LogoIcon aria-hidden="true" className="shrink-0" data-logo-icon="true" />
+					<LogoContent
+						aria-hidden="true"
+						className="shrink-0 group-data-[collapsible=icon]:hidden"
+						data-logo-content="true"
+					/>
+				</SidebarMenuButton>
 			</SidebarHeader>
 			<SidebarContent>
 				{navGroups.map((group, index) => (
