@@ -43,7 +43,7 @@ export function AppSidebar({
 			<SidebarHeader className="h-14 justify-center border-b px-2">
 				<SidebarMenuButton
 					aria-label="MonitoraME"
-					className="h-10 gap-2 text-foreground group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0! [&>[data-logo-content]]:h-4 [&>[data-logo-content]]:w-auto [&>[data-logo-icon]]:h-4 [&>[data-logo-icon]]:w-auto"
+					className="h-10 text-foreground group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0! *:data-logo-content:h-4 *:data-logo-content:w-auto *:data-logo-icon:h-4 *:data-logo-icon:w-auto"
 					render={<Link href="/monitor" />}
 				>
 					<LogoIcon aria-hidden="true" className="shrink-0" data-logo-icon="true" />
