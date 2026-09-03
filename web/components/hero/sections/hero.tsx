@@ -25,7 +25,7 @@ export function HeroSection() {
 						"fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-100 duration-500 ease-out"
 					)}
 				>
-					Gestão e divulgação de informações para processos públicos
+					Monitoramento e auxílio de licitações públicas
 				</h1>
 
 				<p

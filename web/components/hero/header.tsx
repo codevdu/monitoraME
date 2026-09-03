@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Logo } from "@/components/hero/logo";
+import { Logo } from "@/components/logo";
 import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { DesktopNav } from "@/components/hero/desktop-nav";
@@ -21,12 +21,12 @@ export function Header() {
 		>
 			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
 				<div className="flex items-center gap-5">
-					<a
+					<Link
 						className="rounded-lg px-3 py-2.5 hover:bg-muted dark:hover:bg-muted/50"
 						href="#"
 					>
 						<Logo className="h-4" />
-					</a>
+					</Link>
 					<DesktopNav />
 				</div>
 				<div className="flex items-center gap-2">
