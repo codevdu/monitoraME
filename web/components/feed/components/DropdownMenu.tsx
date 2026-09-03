@@ -13,30 +13,14 @@ import { SortFilter } from "@/components/feed/components/filters/SortFilter"
 
 export function Filters() {
   const [open, setOpen] = useState(false)
-
-  const [municipio, setMunicipio] =
-    useState<string | null>(null)
-
-  const [porte, setPorte] =
-    useState<string | null>(null)
-
-  const [ordenacao, setOrdenacao] =
-    useState<string | null>(null)
-
-  const [selecionandoMunicipio, setSelecionandoMunicipio] =
-    useState(false)
-
-  const [porteAberto, setPorteAberto] =
-    useState(false)
-
-  const [ordenacaoAberta, setOrdenacaoAberta] =
-    useState(false)
-
+  const [municipio, setMunicipio] = useState<string | null>(null)
+  const [porte, setPorte] = useState<string | null>(null)
+  const [ordenacao, setOrdenacao] = useState<string | null>(null)
+  const [selecionandoMunicipio, setSelecionandoMunicipio] = useState(false)
+  const [porteAberto, setPorteAberto] = useState(false)
+  const [ordenacaoAberta, setOrdenacaoAberta] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  /*
-   * CTRL + M
-   */
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -69,9 +53,6 @@ export function Filters() {
     }
   }, [])
 
-  /*
-   * Clique fora
-   */
   useEffect(() => {
     const handleClickOutside = (
       event: MouseEvent
@@ -99,9 +80,6 @@ export function Filters() {
     }
   }, [])
 
-  /*
-   * Fecha tudo
-   */
   const fecharMenu = () => {
     setOpen(false)
     setSelecionandoMunicipio(false)
@@ -109,9 +87,6 @@ export function Filters() {
     setOrdenacaoAberta(false)
   }
 
-  /*
-   * Selecionar município
-   */
   const selecionarMunicipio = (
     nome: string
   ) => {
@@ -146,10 +121,7 @@ export function Filters() {
   }
 
   return (
-    <div
-      ref={menuRef}
-      className="relative inline-block"
-    >
+    <div ref={menuRef} className="relative inline-block">
       <button
         type="button"
         onClick={() => {
@@ -159,29 +131,14 @@ export function Filters() {
             setOpen(true)
           }
         }}
-        className="
-          flex h-9 items-center gap-2 rounded-lg border border-border/60
-          bg-background px-3 text-sm font-medium transition-colors hover:bg-muted">
+        className="flex h-9 items-center gap-2 rounded-lg border border-border/60 bg-background px-3 text-sm font-medium transition-colors hover:bg-muted">
         <Filter className="size-4" />
 
         <span className="hidden sm:inline">
           Filtros
         </span>
-
         <span
-          className="
-            hidden
-            lg:inline-flex
-            items-center
-            rounded-md
-            bg-muted
-            px-1.5
-            py-0.5
-            text-[10px]
-            font-medium
-            text-muted-foreground
-          "
-        >
+          className="hidden lg:inline-flex items-center rounded-md bg-muted px-1.5 py-0.5text-[10px] font-medium text-muted-foreground">
           Ctrl M
         </span>
 
@@ -219,17 +176,7 @@ export function Filters() {
 
             <div className="my-1 h-px bg-border" />
               <div className="px-1">
-                <p
-                  className="
-                    px-1
-                    py-1
-                    text-[10px]
-                    font-medium
-                    uppercase
-                    tracking-wider
-                    text-muted-foreground
-                  "
-                >
+                <p className="px-1 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
                   Localização
                 </p>
 
@@ -243,19 +190,7 @@ export function Filters() {
                     setPorteAberto(false)
                     setOrdenacaoAberta(false)
                   }}
-                  className="
-                    flex
-                    w-full
-                    items-center
-                    gap-2
-                    rounded-md
-                    px-2
-                    py-1.5
-                    text-left
-                    outline-none
-                    hover:bg-muted
-                  "
-                >
+                  className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left outline-none hover:bg-muted">
                   <Search className="size-4 shrink-0" />
 
                   <div className="min-w-0 flex-1">
@@ -277,7 +212,6 @@ export function Filters() {
               </div>
 
               <div className="my-1 h-px bg-border" />
-
               <SortFilter
                 ordenacao={ordenacao}
                 aberto={ordenacaoAberta}

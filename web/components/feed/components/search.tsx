@@ -34,13 +34,15 @@ export function InputGroupDemo() {
   }, []);
 
   return (
-    <InputGroup className="max-w-xs rounded-md">
+    <InputGroup className="max-w-xs rounded-md hover:bg-gray-50">
       <InputGroupInput id="search-input" placeholder="Search..." />
       <InputGroupAddon>
         <Search />
       </InputGroupAddon>
-      <InputGroupAddon className="px-4 text-xs" align="inline-end">
-        Ctrl + K
+      <InputGroupAddon align="inline-end" className="pr-2">
+        <span className="hidden lg:inline-flex items-center rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+          Ctrl K
+        </span>
       </InputGroupAddon>
     </InputGroup>
   );
